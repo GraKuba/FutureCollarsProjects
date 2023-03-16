@@ -12,4 +12,8 @@ sprzedaz
 raspberry
 25000
 5
+zakup
+nokia
+15000
+5
 stop
