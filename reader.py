@@ -30,39 +30,22 @@ class Manager:
                 for line in data:
                     writer.writerow(line) 
 
-    def fileChange(self, data):
-        for command in data:
-            data[command[2][command[3] = command[4]
-        return data 
+
+# FROM THE TERMINAL INPUT FIGURE OUT, WHICH OUTPUT TO APPLY
+if sys.argv[3] == 'file.pickle':
+    name = 'pickle'
+elif sys.argv[3] == 'file.json':
+    name = 'json'
+else:
+    name = 'csv'
+
+# TAKE INPUT FROM THE TERMINAL AND APPLY CHANGES
+data = Manager(file, sys.argv[3], name).downloadFile()
+data[int(sys.argv[3])][int(sys.argv[4])] = sys.argv[5]
 
 
-if len(sys.argv) > 1: # DOWNLOAD CHANGES FROM THE CONSOLE
-    i = 0
-    changesList = []
-    changes = []
-    for item in sys.argv:
-        i += 1
-        if i > 1:
-            changes.append(item)
-            if len(changes) == 5:
-                changesList.append(changes)
-                changes = []
-
-        
-
-with open(file, 'r') as f:
-    tempData = []
-    reader = csv.reader(f)
-    for line in reader:
-        tempData.append(line)
-# PRINT OUT INPUT.CSV CONTENTS ONTO THE CONSOLE
-    for line in reader:
-        print(' '.join(line))
+for i in data:
+    print(i)
 
 
 
-# output = "/Users/kubagrabarczyk/Desktop/python recap/output.csv"
-# with open(output, 'w') as f:
-#     writer = csv.writer(f)
-#     for line in tempData:
-#         writer.writerow(line)
