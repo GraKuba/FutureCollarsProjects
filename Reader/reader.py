@@ -34,18 +34,17 @@ class Manager:
 # FROM THE TERMINAL INPUT FIGURE OUT, WHICH OUTPUT TO APPLY
 if sys.argv[3] == 'file.pickle':
     name = 'pickle'
+    binary = 'b'
 elif sys.argv[3] == 'file.json':
     name = 'json'
+    binary = ''
 else:
     name = 'csv'
+    binary = ''
 
 # TAKE INPUT FROM THE TERMINAL AND APPLY CHANGES
 data = Manager(file, sys.argv[3], name).downloadFile()
 data[int(sys.argv[3])][int(sys.argv[4])] = sys.argv[5]
 
-
-for i in data:
-    print(i)
-
-
-
+# SAVE DATA IN THE FILE OF THE TYPE GIVEN IN TERMINAL
+Manager.writeFile(data, binary)
