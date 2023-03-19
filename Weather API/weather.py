@@ -1,4 +1,5 @@
 import sys
+import os
 
 class WeatherForecast:
     def __init__(self, key):
@@ -9,3 +10,8 @@ class WeatherForecast:
 
     def analyseData(self):
         pass
+
+
+
+if os.path.exists(''):
+    pass
