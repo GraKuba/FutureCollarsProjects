@@ -1,3 +1,4 @@
+# GLOBAL VARIABLES
 current_package = 0
 kgs_sent = 0
 packages_sent = 0
@@ -6,6 +7,7 @@ highest_waste = 0
 highest_waste_nr = 0
 i = 0
 
+# IMPORT PACKAGE DATA FROM INPUT AND ANALYZE IT
 while True:
     print('Package weight')
     package = int(input())
@@ -40,6 +42,8 @@ while True:
         pass
     print(f"Current package is: {current_package}")
 
+
+# PRINT OUT REQUESTED DATA 
 print(f'Kgs sent: {kgs_sent}')
 print(f'Packages sent {packages_sent}')
 print(f'Wasted kgs: {wasted_kgs}')
