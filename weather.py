@@ -1,42 +1,47 @@
-import sys
-import os
 import requests
+import sys
+from datetime import datetime
+import pprint
+
+url = 'https://api.openweathermap.org/data/2.5/forecast?lat=51.51&lon=0.1276&appid=' + sys.argv[1]
 
 class WeatherForecast:
-    def __init__(self, key, url):
-        self.key = key
-        self.url = url
+	def __init__(self, url):
+		self.url = url
+		self.list = []
 
-    def importData(self, key):
-        querystring = {"units":"auto","lang":"en"}
+	def checkInData(self):
+		for i in self.list:
+			self.list.append(i)
+		return self.list
 
-        headers = {
-            "X-RapidAPI-Key": key,
-            "X-RapidAPI-Host": "dark-sky.p.rapidapi.com"
-        }
+	def addToData(self):
+		response = requests.get(self.url).json()	
+		return response	
 
-        response = requests.get(url)
+wf = WeatherForecast(url) 
 
-        return response.text
+data = wf.addToData()
 
-    def analyseData(self):
-        pass
+# pprint.pprint(data)
 
-url = "https://dark-sky.p.rapidapi.com/%7Blatitude%7D,%7Blongitude%7D"
-key = sys.argv[1]
-# queryData = sys.argv[2]
+dateList = []
+for idx in data['list']:
+	date = idx['dt_txt'].split(' ', 1)[0]
+	weatherTpl = {date: idx['weather'][0]['main']}
+	dateList.append(weatherTpl)
 
-data = WeatherForecast(key, url)
-
-newDataa = data.importData(key)
-
-print(newDataa)
-
-
+for idx in dateList:
+	for i,j in idx.items():
+		
 
 
-# key = sys.argv[1]
-# requestedWeather = sys.argv[2]
 
-# if os.path.exists(''):
-#     pass
+# weatherList = []
+# for idx in dateList:
+# 	if idx[1] == 'Rain': 
+
+# print(weatherList)
+
+# if test == sys.argv[2]:
+# 	print('yes')
