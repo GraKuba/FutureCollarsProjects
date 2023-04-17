@@ -1,7 +1,5 @@
 import requests
 import sys
-from datetime import datetime
-import pprint
 
 url = 'https://api.openweathermap.org/data/2.5/forecast?lat=51.51&lon=0.1276&appid=' + sys.argv[1]
 
