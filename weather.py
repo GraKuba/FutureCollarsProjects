@@ -38,7 +38,5 @@ class WeatherForecast:
 		return response	
 
 wf = WeatherForecast(url) 
-
 data = wf.addToData()
-
 wf.analyseData(data)
